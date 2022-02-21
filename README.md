@@ -2,6 +2,8 @@
 
 A repo for running VQGAN+CLIP locally. This started out as a Katherine Crowson VQGAN+CLIP derived Google colab notebook, and further derived from a project to run the notebook locally using Anaconda for Python found [in this repository](https://github.com/nerdyrodent/VQGAN-CLIP)
 
+This project aims to provide compatibility for arm64-based systems and allow for testing of maching learning workloads across processor architectures.
+
 ## Hardware and OS Requirements
 
 This project is only tested on an AMD-based x86-64 system (should not differ for Intel processors) and a Raspberry Pi 3B+. With more interest, it may be tested for Apple Silicon-based systems.
