@@ -44,6 +44,9 @@ import re
 import warnings
 warnings.filterwarnings('ignore')
 
+# Begin runtime logging for script
+import time
+startTime = time.time()
 
 # Check for GPU and reduce the default image size if low VRAM
 default_image_size = 512  # >8GB VRAM
@@ -988,3 +991,7 @@ if args.make_video or args.make_zoom_video:
             im.save(p.stdin, 'PNG')
         p.stdin.close()
         p.wait()     
+
+# Compute and print the runtime of the script
+executionTime = (time.time() - startTime)
+print('Execution time in seconds: ' + str(executionTime))
