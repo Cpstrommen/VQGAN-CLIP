@@ -18,11 +18,15 @@ The project can be installed and run normally, and for testing purposes Ubuntu 2
 
 This project still remains untested on arm64 architectures, and testing is in progress to provide compatibility.
 
-Ubuntu 20.04 for arm64 is recommended to provide maximum compatibility, and testing for arm64 compatibility will only be done with the Raspberry Pi model 3B+.
+Ubuntu 20.04 for arm64 is recommended to provide maximum compatibility, and testing for arm64 compatibility will only be done with the Raspberry Pi model 3B+. Future revisions may include tests done on Apple Silicon-based processors.
+
+### Anaconda for arm64
 
 Anaconda is only developed for x86-64 systems, so miniconda3 must be used, installation instructions can be found [in this thread](https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b)
 
 VQGAN is built for Python 3.9, to install in the miniconda3 environment run `conda install python=3.9`
+
+## Pytorch for arm64
 
 Pytorch is also required, and installation instructions for arm systems can be found [on this page](http://mathinf.com/pytorch/arm64/)
 
@@ -36,3 +40,10 @@ pip install --pre torch torchvision torchaudio -f https://download.pytorch.org/w
 ## Notes for Testing
 
 The original version of this project is intended to run on GPU CUDA cores and is more efficient in such configuration. To force CPU use, add tag `-cd cpu` in the execution of `generate.py`
+
+For our benchmark testing, the following generate line was used
+```
+python generate.py -cd cpu -i 500 -s 400 400 -p "A painting of a wizard riding a white horse into the sunset"
+```
+
+Image size is heavily dependant on avaliable VRAM, adjust the `-s 400 400` tag accordingly to accomodate avaliable hardware. Furthermore the tag `-ii /path_to/starting_image` can be used to set a starting image for VQGAN.
