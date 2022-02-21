@@ -84,6 +84,7 @@ As of now, custom model generation is only compatible with the CUDA version of P
 ---
 ## Notes for Testing
 
+### Test Execution
 The original version of this project is intended to run on GPU CUDA cores and is more efficient in such configuration. To force CPU use, add tag `-cd cpu` in the execution of `generate.py`
 
 For our benchmark testing, the following generate line was used
@@ -93,4 +94,12 @@ python generate.py -cd cpu -i 500 -s 400 400 -p "A painting of a wizard riding a
 
 Image size is heavily dependant on avaliable VRAM, adjust the `-s 400 400` tag accordingly to accomodate avaliable hardware. Furthermore the tag `-ii /path_to/starting_image` can be used to set a starting image for VQGAN.
 
-Runtime of each generated image will print at the end of each run, logging can be added for multiple successive generations.
+### Run Statistics
+Runtime and process stats will be printed in this format after each test, if you would like to further build to automate iterative image generation
+```
+print('Execution device: ' + args.cuda_device)
+print('Processor: ' + platform.processor())
+print('Iterations: ' + args.max_iterations)
+print('Image Size: ' + args.size)
+print('Execution time in seconds: ' + str(executionTime))
+```

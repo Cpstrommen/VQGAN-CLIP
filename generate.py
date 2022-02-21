@@ -9,6 +9,7 @@ from urllib.request import urlopen
 from tqdm import tqdm
 import sys
 import os
+import platform
 
 # pip install taming-transformers doesn't work with Gumbel, but does not yet work with coco etc
 # appending the path does work with Gumbel, but gives ModuleNotFoundError: No module named 'transformers' for coco etc
@@ -141,6 +142,7 @@ if not args.cuda_device == 'cpu' and not torch.cuda.is_available():
     args.cuda_device = 'cpu'
     args.video_fps = 0
     print("Warning: No GPU found! Using the CPU instead. The iterations will be slow.")
+    print("If you are using as a CPU compute benchmark, ignore this message.")
     print("Perhaps CUDA/ROCm or the right pytorch version is not properly installed?")
 
 # If a video_style_dir has been, then create a list of all the images
@@ -994,4 +996,11 @@ if args.make_video or args.make_zoom_video:
 
 # Compute and print the runtime of the script
 executionTime = (time.time() - startTime)
+
+# Print execution stats for later results comparison
+print('\n\n\n\n\n\n\n')
+print('Execution device: ' + args.cuda_device)
+print('Processor: ' + platform.processor())
+print('Iterations: ' + args.max_iterations)
+print('Image Size: ' + args.size)
 print('Execution time in seconds: ' + str(executionTime))
