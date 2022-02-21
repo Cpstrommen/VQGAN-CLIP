@@ -4,6 +4,7 @@ A repo for running VQGAN+CLIP locally. This started out as a Katherine Crowson V
 
 This project aims to provide compatibility for arm64-based systems and allow for testing of maching learning workloads across processor architectures.
 
+---
 ## Hardware and OS Requirements
 
 This project is only tested on an AMD-based x86-64 system (should not differ for Intel processors) and a Raspberry Pi 3B+. With more interest, it may be tested for Apple Silicon-based systems.
@@ -26,7 +27,7 @@ Anaconda is only developed for x86-64 systems, so miniconda3 must be used, insta
 
 VQGAN is built for Python 3.9, to install in the miniconda3 environment run `conda install python=3.9`
 
-## Pytorch for arm64
+### Pytorch for arm64
 
 Pytorch is also required, and installation instructions for arm systems can be found [on this page](http://mathinf.com/pytorch/arm64/)
 
@@ -35,7 +36,6 @@ Note: Pytorch now includes arm64 support in their nightly builds, and can be ins
 pip install numpy
 pip install --pre torch torchvision torchaudio -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 ```
-
 
 ## Notes for Testing
 
