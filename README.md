@@ -92,3 +92,5 @@ python generate.py -cd cpu -i 500 -s 400 400 -p "A painting of a wizard riding a
 ```
 
 Image size is heavily dependant on avaliable VRAM, adjust the `-s 400 400` tag accordingly to accomodate avaliable hardware. Furthermore the tag `-ii /path_to/starting_image` can be used to set a starting image for VQGAN.
+
+Runtime of each generated image will print at the end of each run, logging can be added for multiple successive generations.
