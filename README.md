@@ -25,22 +25,40 @@ Ubuntu 20.04 for arm64 is recommended to provide maximum compatibility, and test
 
 ### Anaconda for arm64
 
-Anaconda is only developed for x86-64 systems, so miniconda3 must be used, installation instructions can be found [in this thread](https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b)
+To install conda for arm64, download the installer from the [Anaconda Docs](https://docs.anaconda.com/anaconda/install/linux-aarch64/)
+Run the installer script using (change the command based on the `Anaconda3-202X.XX-Linux-aarch64.sh` file)
+```
+bash ~/Anaconda3-2021.04-Linux-aarch64.sh
+```
+Have the changes take effect with 
+```
+source ~/.bashrc
+```
 
-VQGAN is built for Python 3.9, to install in the miniconda3 environment run 
+VQGAN is built for Python 3.9, to install in the conda environment run 
 ```
 conda install python=3.9
 ```
+
+#### For Legacy Systems
+
+Miniconda has wider compatibility for legacy systems, installation instructions can be found [in this thread](https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b)
 
 ### Pytorch for arm64
 
 Pytorch is also required, and installation instructions for arm systems can be found [on this page](http://mathinf.com/pytorch/arm64/)
 
-Note: Pytorch now includes arm64 support in their nightly builds, and can be installed with 
+To install pytorch stable using conda for cpu-only processing
+```
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+```
+
+Note: Pytorch nightly build can also be installed with these commands
 ```
 pip install numpy
 pip install --pre torch torchvision torchaudio -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 ```
+
 ## VQGAN Models
 To use with a pretrained image generation model, configure and run the `download_models.sh` script to download your model of choice. A word of caution, these models are massive and take huge amounts of disk space, bandwith, and time to download, so choose your model(s) and download location carefully.
 
