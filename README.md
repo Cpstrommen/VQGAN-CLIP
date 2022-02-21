@@ -25,7 +25,10 @@ Ubuntu 20.04 for arm64 is recommended to provide maximum compatibility, and test
 
 Anaconda is only developed for x86-64 systems, so miniconda3 must be used, installation instructions can be found [in this thread](https://stackoverflow.com/questions/39371772/how-to-install-anaconda-on-raspberry-pi-3-model-b)
 
-VQGAN is built for Python 3.9, to install in the miniconda3 environment run `conda install python=3.9`
+VQGAN is built for Python 3.9, to install in the miniconda3 environment run 
+```
+conda install python=3.9
+```
 
 ### Pytorch for arm64
 
@@ -39,6 +42,20 @@ pip install --pre torch torchvision torchaudio -f https://download.pytorch.org/w
 ## VQGAN Models
 To use with a pretrained image generation model, configure and run the `download_models.sh` script to download your model of choice. A word of caution, these models are massive and take huge amounts of disk space, bandwith, and time to download, so choose your model(s) and download location carefully.
 
+Models can be chosen by editing this section of the `download_models.sh` script. If unchanged, the `Imagenet_16384` model will be downloaded by default.
+```
+# Which models to download?
+IMAGENET_1024=false
+IMAGENET_16384=true
+GUMBEL=false
+#WIKIART_1024=false
+WIKIART_16384=false
+COCO=false
+FACESHQ=false
+SFLCKR=false
+```
+
+### VQGAN Model Training from Custom Datasets
 To train a custom VQGAN model off of custom datasets, use the code and follow the steps in [this project](https://github.com/CompVis/taming-transformers#training-on-custom-data)
 
 As of now, custom model generation is only compatible with the CUDA version of Pytorch, so Nvidia GPU(s) are required. 
