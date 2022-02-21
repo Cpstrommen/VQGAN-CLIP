@@ -13,6 +13,7 @@ This project is only tested on an AMD-based x86-64 system (should not differ for
 
 64-bit installations of your distro of choice (only tested on Ubuntu 20.04 LTS) are required for this project to run smoothly. Due to lack of development of certain dependancies namely conda and pytorch for armhf and other 32-bit OS's, the project is limited to 64-bit systems (or not, if you are willing and able to get the problematic dependancies installed)
 
+---
 ## For x86-64 Processors
 
 The project can be installed and run normally, and for testing purposes Ubuntu 20.04 LTS will be used to provide consistancy. Installation instructions can be found in the [original project repository](https://github.com/nerdyrodent/VQGAN-CLIP)
@@ -58,7 +59,7 @@ Note: Pytorch nightly build can also be installed with these commands
 pip install numpy
 pip install --pre torch torchvision torchaudio -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 ```
-
+---
 ## VQGAN Models
 To use with a pretrained image generation model, configure and run the `download_models.sh` script to download your model of choice. A word of caution, these models are massive and take huge amounts of disk space, bandwith, and time to download, so choose your model(s) and download location carefully.
 
@@ -79,6 +80,8 @@ SFLCKR=false
 To train a custom VQGAN model off of custom datasets, use the code and follow the steps in [this project](https://github.com/CompVis/taming-transformers#training-on-custom-data)
 
 As of now, custom model generation is only compatible with the CUDA version of Pytorch, so Nvidia GPU(s) are required. 
+
+---
 ## Notes for Testing
 
 The original version of this project is intended to run on GPU CUDA cores and is more efficient in such configuration. To force CPU use, add tag `-cd cpu` in the execution of `generate.py`
