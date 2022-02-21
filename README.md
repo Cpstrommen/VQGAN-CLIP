@@ -17,7 +17,7 @@ The project can be installed and run normally, and for testing purposes Ubuntu 2
 
 ## For arm64 Processors
 
-This project still remains untested on arm64 architectures, and testing is in progress to provide compatibility.
+Note: This project still remains untested on arm64 architectures, and testing is in progress to provide full compatibility.
 
 Ubuntu 20.04 for arm64 is recommended to provide maximum compatibility, and testing for arm64 compatibility will only be done with the Raspberry Pi model 3B+. Future revisions may include tests done on Apple Silicon-based processors.
 
@@ -36,7 +36,12 @@ Note: Pytorch now includes arm64 support in their nightly builds, and can be ins
 pip install numpy
 pip install --pre torch torchvision torchaudio -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 ```
+## VQGAN Models
+To use with a pretrained image generation model, configure and run the `download_models.sh` script to download your model of choice. A word of caution, these models are massive and take huge amounts of disk space, bandwith, and time to download, so choose your model(s) and download location carefully.
 
+To train a custom VQGAN model off of custom datasets, use the code and follow the steps in [this project](https://github.com/CompVis/taming-transformers#training-on-custom-data)
+
+As of now, custom model generation is only compatible with the CUDA version of Pytorch, so Nvidia GPU(s) are required. 
 ## Notes for Testing
 
 The original version of this project is intended to run on GPU CUDA cores and is more efficient in such configuration. To force CPU use, add tag `-cd cpu` in the execution of `generate.py`
