@@ -1,5 +1,7 @@
 # VQGAN-CLIP Implementation for Process Architecture Testing
 
+![Example Image](https://korii.slate.fr/sites/default/files/styles/1440x600/public/champdechienselectriques.jpg)
+
 A repo for running VQGAN+CLIP locally. This started out as a Katherine Crowson VQGAN+CLIP derived Google colab notebook, and further derived from a project to run the notebook locally using Anaconda for Python found [in this repository](https://github.com/nerdyrodent/VQGAN-CLIP)
 
 This project aims to provide compatibility for arm64-based systems and allow for testing of maching learning workloads across processor architectures.
