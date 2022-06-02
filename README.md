@@ -28,16 +28,16 @@ Ubuntu 20.04 for arm64 is recommended to provide maximum compatibility, and test
 
 To install conda for arm64, download the installer from the [Anaconda Docs](https://docs.anaconda.com/anaconda/install/linux-aarch64/)
 Run the installer script using (change the command based on the `Anaconda3-202X.XX-Linux-aarch64.sh` file)
-```
+```bash
 bash ~/Anaconda3-2021.04-Linux-aarch64.sh
-```
+```bash
 Have the changes take effect with 
-```
+```bash
 source ~/.bashrc
 ```
 
 VQGAN is built for Python 3.9, to install in the conda environment run 
-```
+```bash
 conda install python=3.9
 ```
 
@@ -50,12 +50,12 @@ Miniconda has wider compatibility for legacy systems, installation instructions 
 Pytorch is also required, and installation instructions for arm systems can be found [on this page](http://mathinf.com/pytorch/arm64/)
 
 To install pytorch stable using conda for cpu-only processing
-```
+```bash
 conda install pytorch torchvision torchaudio cpuonly -c pytorch
 ```
 
 Note: Pytorch nightly build can also be installed with these commands
-```
+```bash
 pip install numpy
 pip install --pre torch torchvision torchaudio -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 ```
@@ -64,7 +64,7 @@ pip install --pre torch torchvision torchaudio -f https://download.pytorch.org/w
 To use with a pretrained image generation model, configure and run the `download_models.sh` script to download your model of choice. A word of caution, these models are massive and take huge amounts of disk space, bandwith, and time to download, so choose your model(s) and download location carefully.
 
 Models can be chosen by editing this section of the `download_models.sh` script. If unchanged, the `Imagenet_16384` model will be downloaded by default.
-```
+```shell
 # Which models to download?
 IMAGENET_1024=false
 IMAGENET_16384=true
@@ -88,7 +88,7 @@ As of now, custom model generation is only compatible with the CUDA version of P
 The original version of this project is intended to run on GPU CUDA cores and is more efficient in such configuration. To force CPU use, add tag `-cd cpu` in the execution of `generate.py`
 
 For our benchmark testing, the following generate lines were used, each for each testing circumstance
-```
+```bash
 python generate.py -cd cpu -i 500 -s 400 400 -p "A painting of a wizard riding a white horse into the sunset"
 python generate.py -cd cpu -i 500 -s 400 400 -p "A drawing of a fiery bull fighting a white unicorn"
 python generate.py -cd cpu -i 500 -s 400 400 -p "A sketch of a yellow bird perched on a green tree"
@@ -100,7 +100,7 @@ If your images look unfinished or blurry, increase the iteration tag `-i 500` to
 
 ### Run Statistics
 Runtime and process stats will be printed in this format after each test, if you would like to further build to automate iterative image generation
-```
+```python
 print('Execution device: ' + args.cuda_device)
 print('Processor: ' + platform.processor())
 print('Iterations: ' + args.max_iterations)
