@@ -30,7 +30,7 @@ To install conda for arm64, download the installer from the [Anaconda Docs](http
 Run the installer script using (change the command based on the `Anaconda3-202X.XX-Linux-aarch64.sh` file)
 ```bash
 bash ~/Anaconda3-2021.04-Linux-aarch64.sh
-```bash
+```
 Have the changes take effect with 
 ```bash
 source ~/.bashrc
